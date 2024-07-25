@@ -1,0 +1,53 @@
+.center-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  width: 100%;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.center-form h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #061729;
+}
+
+.custom-form {
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+
+  @media (max-width: 600px) {
+    max-width: 100%;
+  }
+}
+
+.custom-form label {
+  font-weight: bold;
+}
+
+.custom-form .form-control {
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+custom-form button {
+  background-color: #061729;
+  color: #fff;
+  border: none;
+}
+
+custom-form button:hover {
+  background-color: black;
+}
