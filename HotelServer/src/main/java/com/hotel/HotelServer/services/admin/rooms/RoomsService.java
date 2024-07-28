@@ -8,4 +8,6 @@ public interface RoomsService {
 
     RoomsResponseDto getAllRooms(int pageNumber);
 
+    public RoomDto getRoomById(Long id);
+
 }
