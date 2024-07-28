@@ -33,7 +33,7 @@ public class RoomsServiceImpl implements RoomsService{
     }
 
     public RoomsResponseDto getAllRooms(int pageNumber){
-        Pageable pageable = PageRequest.of(pageNumber, 6);
+        Pageable pageable = PageRequest.of(pageNumber, 1);
         Page<Room> roomPage = roomRepository.findAll(pageable);
 
         RoomsResponseDto roomsResponseDto = new RoomsResponseDto();

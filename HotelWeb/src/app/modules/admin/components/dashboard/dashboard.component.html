@@ -1,1 +1,33 @@
-<p>dashboard works!</p>
+<div class="center-form">
+  <button nz-button nzType="primary" class="post-room-btn" routerLink="/admin/room">Post Room</button>
+  <div class="room-container">
+    <div class="room-row" *ngFor="let room of rooms">
+      <nz-card style="width: 300px; margin: 16px" [nzActions]="[actionEdit, actionDelete]">
+        <nz-skeleton [nzActive]="true" [nzLoading]="loading" [nzAvatar]="{size: 'large'}">
+          <nz-card-meta [nzAvatar]="avatarTemplate" nzTitle="{{room.name}}"
+            nzDescription="Type: {{room.type}}"
+          ></nz-card-meta>
+          <nz-card-meta style="margin-left: 49px;" nzDescription="Price: {{room.price |  currency:'EUR' }}"></nz-card-meta>
+        </nz-skeleton>
+      </nz-card>
+
+      <ng-template #avatarTemplate>
+        <nz-avatar nzSrc="https://images.unsplash.com/photo-1629140727571-9b5c6f6267b4?q=80&w=1854&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDb8MHxwaG90by1wYWd1fHx8fGVufDB8fHx8fA%3D%3D"></nz-avatar>
+      </ng-template>
+      <ng-template #actionEdit>
+        <span nz-icon nzType="edit" [nzTheme]="'twotone'" class="icon">
+        </span>
+      </ng-template>
+      <ng-template #actionDelete>
+        <span nz-icon nzType="delete" [nzTheme]="'twotone'" class="icon" [nzTwotoneColor]="'#FF0000'">
+        </span>
+      </ng-template>
+    </div>
+  </div>
+
+  <div class="pagination">
+    <nz-pagination [nzPageIndex]="currentPage" [nzTotal]="total" [nzPageSize]="1" (nzPageIndexChange)="pageIndexChange($event)">
+
+    </nz-pagination>
+  </div>
+</div>
