@@ -1,0 +1,29 @@
+<div class="room-details-form-container">
+
+  <form nz-form nzLayout="vertical" class="room-details-form" [formGroup]="updateRoomForm">
+    <div class="form-title">Update Room Details</div>
+    <nz-form-item>
+      <nz-form-control [nzSpan]="16" [nzOffset]="4">
+        <input nz-input formControlName="name" placeholder="Room Name">
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-control [nzSpan]="16" [nzOffset]="4">
+        <input nz-input formControlName="type" placeholder="Room Type">
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-control [nzSpan]="16" [nzOffset]="4">
+        <input nz-input formControlName="price" placeholder="Room Price">
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item class="button-container">
+      <nz-form-label class="nz-form-item-control" [nzSpan]="16" [nzOffset]="4">
+        <button nz-button nzType="primary" type="submit" (click)="submitForm()">Update</button>
+      </nz-form-label>
+    </nz-form-item>
+  </form>
+</div>
