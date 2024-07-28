@@ -8,6 +8,8 @@ public interface RoomsService {
 
     RoomsResponseDto getAllRooms(int pageNumber);
 
-    public RoomDto getRoomById(Long id);
+    RoomDto getRoomById(Long id);
+
+    boolean updateRoom(Long id, RoomDto roomDto);
 
 }
