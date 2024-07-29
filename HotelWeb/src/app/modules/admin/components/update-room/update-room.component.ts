@@ -30,7 +30,14 @@ export class UpdateRoomComponent {
   }
 
   submitForm(){
-
+    this.adminService.updateRoomDetails(this.id, this.updateRoomForm.value).subscribe({
+      next: () =>{
+        this.message.success(`Room updated successfully`, {nzDuration: 5000})
+        this.router.navigateByUrl("/admin/dashboard")
+      }, error: (error) => {
+        this.message.error(`${error.error}`, {nzDuration: 5000})
+      }
+    });
   }
 
   getRoomById() {
