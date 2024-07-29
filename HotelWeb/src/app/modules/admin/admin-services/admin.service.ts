@@ -15,13 +15,19 @@ export class AdminService {
   postRoomDetails(roomDto:any): Observable<any>{
     return this.http.post(BASIC_URL + "api/admin/room", roomDto, {
       headers: this.createAuthorizationHeader()
-    })
+    });
   }
 
   getRooms(pageNumber: number): Observable<any>{
     return this.http.get(BASIC_URL + `api/admin/rooms/${pageNumber}`, {
       headers: this.createAuthorizationHeader()
-    })
+    });
+  }
+
+  getRoomById(id:number): Observable<any> {
+    return this.http.get(BASIC_URL + `api/admin/room/${id}`,{
+      headers: this.createAuthorizationHeader()
+    });
   }
 
   createAuthorizationHeader() {

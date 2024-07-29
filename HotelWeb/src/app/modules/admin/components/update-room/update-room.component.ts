@@ -25,10 +25,21 @@ export class UpdateRoomComponent {
       name: ['', Validators.required],
       type: ['', Validators.required],
       price: ['', Validators.required]
-    })
+    });
+    this.getRoomById();
   }
 
   submitForm(){
 
+  }
+
+  getRoomById() {
+    this.adminService.getRoomById(this.id).subscribe({
+      next: (res) => {
+        this.updateRoomForm.patchValue(res);
+      }, error: (error) => {
+        this.message.error(`${error.error}`, {nzDuration: 5000})
+      }
+    })
   }
 }
