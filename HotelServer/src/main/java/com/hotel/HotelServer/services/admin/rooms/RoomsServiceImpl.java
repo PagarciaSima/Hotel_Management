@@ -19,6 +19,7 @@ import java.util.stream.Collectors;
 public class RoomsServiceImpl implements RoomsService{
 
     private final RoomRepository roomRepository;
+    public final int PAGE_SIZE = 6;
 
     public boolean postRoom(RoomDto roomDto){
         try{
@@ -35,7 +36,7 @@ public class RoomsServiceImpl implements RoomsService{
     }
 
     public RoomsResponseDto getAllRooms(int pageNumber){
-        Pageable pageable = PageRequest.of(pageNumber, 1);
+        Pageable pageable = PageRequest.of(pageNumber, PAGE_SIZE);
         Page<Room> roomPage = roomRepository.findAll(pageable);
 
         RoomsResponseDto roomsResponseDto = new RoomsResponseDto();

@@ -53,7 +53,7 @@ public class RoomsController {
     public ResponseEntity<?> deleteRoom(@PathVariable Long id){
         try{
             roomsService.deleteRoom(id);
-            return ResponseEntity.ok("Room deleted successfully");
+            return ResponseEntity.ok(null);
         } catch(EntityNotFoundException e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }

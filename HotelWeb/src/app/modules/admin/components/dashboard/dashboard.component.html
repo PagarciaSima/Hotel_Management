@@ -19,7 +19,7 @@
         </span>
       </ng-template>
       <ng-template #actionDelete>
-        <span nz-icon nzType="delete" [nzTheme]="'twotone'" class="icon" [nzTwotoneColor]="'#FF0000'">
+        <span nz-icon nzType="delete" [nzTheme]="'twotone'" class="icon" [nzTwotoneColor]="'#FF0000'" (click)="showConfirm(room.id)">
         </span>
       </ng-template>
     </div>
