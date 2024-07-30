@@ -1,0 +1,27 @@
+.room-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+nz-card {
+  margin-right: 16px;
+}
+
+.post-room-btn {
+  margin-left: 175px;
+  margin-top: 70px;
+}
+
+.icon {
+  font-size: 20px;
+}
+
+.pagination {
+  float: right;
+  margin-right: 170px;
+}
+.center-form {
+  min-height: 100vh; /* Asegura que el layout ocupe toda la altura de la ventana */
+}
