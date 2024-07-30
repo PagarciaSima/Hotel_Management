@@ -14,7 +14,7 @@ public class ReservationDto {
     private ReservationStatus reservationStatus;
     private Long roomId;
     private String roomType;
-    private String rooMName;
+    private String roomName;
     private Long userId;
     private String username;
 }
