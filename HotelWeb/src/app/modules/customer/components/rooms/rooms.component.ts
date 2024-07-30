@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { CustomerService } from '../../service/customer.service';
+import { UserStorageService } from 'src/app/auth/services/storage/user-storage.service';
 
 @Component({
   selector: 'app-rooms',
@@ -13,6 +14,11 @@ export class RoomsComponent {
   rooms = [];
   total: any;
   loading = false;
+  isVisibleMiddle = false;
+  date: Date[] = [];
+  checkInDate: Date;
+  checkOutDate: Date;
+  id: number;
 
   constructor(
     private customerService: CustomerService,
@@ -38,4 +44,40 @@ export class RoomsComponent {
     this.currentPage = value;
     this.getRooms();
   }
+
+  onChange(result: Date[]){
+    if(result.length === 2){
+      this.checkInDate = result[0];
+      this.checkOutDate = result[1];
+    }
+  }
+
+  handleCancelMiddle(){
+    this.isVisibleMiddle = false;
+  }
+
+  handleOkMiddle(): void {
+    const obj = {
+      userId: UserStorageService.getUserId(),
+      roomId: this.id,
+      checkInDate: this.checkInDate,
+      checkOutDate: this.checkOutDate
+    }
+    this.customerService.bookRoom(obj).subscribe({
+      next: () => {
+        this.message.success(`Request submited for approval!`, {nzDuration: 5000});
+        this.isVisibleMiddle = false;
+
+      }, error: (error) => {
+        this.message.error(`${error.error}`, {nzDuration: 5000})
+      }
+    })
+  }
+
+  showModalMiddle(id: number){
+    this.id = id;
+    this.isVisibleMiddle = true;
+  }
+
+
 }

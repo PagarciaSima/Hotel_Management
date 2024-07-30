@@ -22,6 +22,6 @@ public class BookingController {
         boolean success = bookingService.postReservation(reservationDto);
         if(success)
             return ResponseEntity.status(HttpStatus.OK).build();
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).build()
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 }

@@ -5,6 +5,7 @@ import { CustomerRoutingModule } from './customer-routing.module';
 import { CustomerComponent } from './customer.component';
 import { RoomsComponent } from './components/rooms/rooms.component';
 import { DemoNgZorroAntdModuleTsModule } from 'src/app/demo-ng-zorro-antd-module.ts.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { DemoNgZorroAntdModuleTsModule } from 'src/app/demo-ng-zorro-antd-module
   ],
   imports: [
     CommonModule,
+    FormsModule,
     CustomerRoutingModule,
     DemoNgZorroAntdModuleTsModule
   ]
