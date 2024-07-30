@@ -35,8 +35,15 @@ export class AdminService {
       headers: this.createAuthorizationHeader()
     });
   }
+
   deleteRoom(roomId:number): Observable<any> {
     return this.http.delete(BASIC_URL + `api/admin/room/${roomId}`,{
+      headers: this.createAuthorizationHeader()
+    });
+  }
+
+  getReservations(pageNumber: number): Observable<any>{
+    return this.http.get(BASIC_URL + `api/admin/reservations/${pageNumber}`, {
       headers: this.createAuthorizationHeader()
     });
   }
