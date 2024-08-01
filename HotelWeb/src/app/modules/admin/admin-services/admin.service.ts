@@ -48,6 +48,12 @@ export class AdminService {
     });
   }
 
+  changeReservationStatus(reservationId:number, status:string): Observable<any>{
+    return this.http.get(BASIC_URL + `api/admin/reservations/${reservationId}/${status}`, {
+      headers: this.createAuthorizationHeader()
+    });
+  }
+
   createAuthorizationHeader() {
     let authHeaders: HttpHeaders = new HttpHeaders();
     return authHeaders.set (

@@ -36,4 +36,15 @@ export class ReservationsComponent implements OnInit{
     this.currentPage = value;
     this.getReservations();
   }
+
+  changeReservationStatus(bookingId: number, status: string){
+    this.adminService.changeReservationStatus(bookingId, status).subscribe({
+      next:() => {
+        this.message.success(`Reservation status updated successfully`, {nzDuration: 5000});
+        this.getReservations();
+      }, error: (error) => {
+        this.message.error(`${error.error}`, {nzDuration: 5000});
+      }
+    })
+  }
 }

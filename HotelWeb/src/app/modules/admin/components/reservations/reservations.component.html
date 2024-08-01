@@ -21,7 +21,36 @@
           <td>{{ reservation.checkOutDate }}</td>
           <td>{{ reservation.price }}</td>
           <td>{{ reservation.username }}</td>
-          <td></td>
+          <td>
+            <ng-container *ngIf="reservation.reservationStatus === 'PENDING'">
+              <nz-tag nzColor="processing">
+                <span nz-icon nzType="sync" nzSpin></span>
+                <span>Pending</span>
+              </nz-tag>
+            </ng-container>
+            <ng-container *ngIf="reservation.reservationStatus === 'APPROVED'">
+              <nz-tag nzColor="success">
+                <span nz-icon nzType="check-circle"></span>
+                <span>Approved</span>
+              </nz-tag>
+            </ng-container>
+            <ng-container *ngIf="reservation.reservationStatus === 'REJECTED'">
+              <nz-tag nzColor="error">
+                <span nz-icon nzType="close-circle"></span>
+                <span>Rejected</span>
+              </nz-tag>
+            </ng-container>
+          </td>
+          <td>
+            <span *ngIf="reservation.reservationStatus == 'PENDING'">
+              <span nz-icon [nzType]="'check-circle'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#52c41a'" class="icon"
+                (click)="changeReservationStatus(reservation.id, 'Approve')">
+              </span>
+              <span nz-icon [nzType]="'close-circle'" [nzTheme]="'twotone'"
+                [nzTwotoneColor]="'#FF0000'" class="icon" (click)="changeReservationStatus(reservation.id, 'Rejected')">
+              </span>
+            </span>
+          </td>
           <td></td>
       </tr>
     </tbody>

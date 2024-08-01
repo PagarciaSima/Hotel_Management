@@ -1,6 +1,7 @@
 package com.hotel.HotelServer.services.customer.booking;
 
 import com.hotel.HotelServer.dto.ReservationDto;
+import com.hotel.HotelServer.dto.ReservationResponseDto;
 import com.hotel.HotelServer.entity.Reservation;
 import com.hotel.HotelServer.entity.Room;
 import com.hotel.HotelServer.entity.User;
@@ -40,5 +41,9 @@ public class BookingServiceImpl implements BookingService{
             return true;
         }
         return false;
+    }
+
+    public ReservationResponseDto getAllReservationByUserId(Long userId, int pageNumber){
+        
     }
 }
