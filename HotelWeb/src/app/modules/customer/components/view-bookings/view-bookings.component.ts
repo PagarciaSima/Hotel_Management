@@ -10,6 +10,8 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 export class ViewBookingsComponent implements OnInit{
 
   currentPage: any = 1;
+  total: any;
+  bookings: any;
 
   constructor(
     private customerService: CustomerService,
@@ -25,10 +27,17 @@ export class ViewBookingsComponent implements OnInit{
   getBookings() {
     this.customerService.getMyBookings(this.currentPage - 1).subscribe({
       next:(res) => {
-        console.log(res)
+        console.log(res);
+        this.bookings = res.reservationDtoList;
+        this.total = res.totalPages*5;
       }, error: (error) => {
         this.message.error(`${error.error}`, {nzDuration: 5000})
       }
     })
+  }
+
+  pageIndexChange(value: any){
+    this.currentPage = value;
+    this.getBookings();
   }
 }
