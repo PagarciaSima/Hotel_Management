@@ -49,7 +49,7 @@ This is a simple full stack project based on Spring Boot / Java for the back end
 ![Customer rooms](img/rooms_customer.png)
 
 ### Bookings / customer
-![Customer rooms](img/bookings_customer.png)
+![Customer rooms](img/bookings_customers.png)
 
 ## Demo
 [Link to video Demo](https://www.youtube.com/watch?v=WjJQ25zMDQE)
