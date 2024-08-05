@@ -2,10 +2,7 @@ package com.hotel.HotelServer.entity;
 
 import com.hotel.HotelServer.dto.UserDto;
 import com.hotel.HotelServer.enums.UserRole;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -16,9 +13,11 @@ import java.util.List;
 
 @Entity
 @Data
+@Table(name = "user_table")
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
     private String email;
